@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1 Movies List
+    table.table.table-striped
+        thead 
+            tr
+                th Kategori Adı
+                th
+        tbody 
+            each val in category
+                tr
+                    td #{val.adi}
+                    td
+                        a.btn.btn-success(href='/category/edit/'+val._id) Edit
+                        a.btn.btn-danger.mx-2(href='/category/delete/'+val._id) Delete

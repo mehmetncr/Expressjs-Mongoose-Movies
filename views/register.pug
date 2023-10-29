@@ -1,0 +1,28 @@
+extends layout
+block content
+    if error
+      p.alert.alert-danger.text-center #{error}
+    form(action='register' method='POST') 
+        .row
+            .col-5
+                .input-group.input-group-sm.mb-3  
+                label Kullanıcı Adı        
+                input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='userName')
+                label İsim        
+                input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='name')
+                label Soyisim        
+                input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='surName')
+                label Email        
+                input.form-control(type='email' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='eMail')
+                label Şifre                
+                input.form-control(type='password' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='password')
+                label Şifre Onay               
+                input.form-control(type='password' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='confirmPassword')
+                br
+               
+                .input-group
+                
+                
+            
+                button#inputGroupFileAddon04.btn.btn-success(type='submit') Kayıt Ol
+

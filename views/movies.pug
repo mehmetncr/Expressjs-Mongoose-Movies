@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1=title
+    .row                
+        each val in movieList           
+            .col-3              
+                .card.mb-3 
+                    .card-header.text-center
+                        h5.card-title #{val.filmAdi}
+                        img.card-img-top(src=`${val.imgUrl}`  width='200px')
+                    .card-body.text-center
+                        p.card-text #{val.yonetmen}
+                        p.card-text #{val.fiyat} ₺
+                    .card-footer.text.end 
+                        a.btn.btn-warning(href='movies/detail/'+val._id) Detay 
+                        a.btn.btn-success(href='cart/addCart/'+val._id) Sepete Ekle

@@ -1,0 +1,23 @@
+extends layout
+block content
+    table.table.table-striped
+        thead
+            tr
+                th Ürün
+                th Fiyat
+                th Miktar
+                th Toplam
+        tbody
+            each item in cart
+                tr
+                    td= item.movie
+                    td= item.price
+                    td= item.quantity
+                    td= item.price * item.quantity
+        tfoot
+            tr
+                td(colspan="3") Toplam
+                td 
+                    a.btn.btn-success(href='/cart/payment') Tamamla
+          
+        

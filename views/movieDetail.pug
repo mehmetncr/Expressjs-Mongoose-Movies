@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1= title
+    .col-6
+        .card.mb-3 
+            .card-header.text-center
+                h5.card-title #{movie.filmAdi}
+                img.card-img-top(src=`${movie.imgUrl}` width='200px')
+            .card-body.text-center
+                p.card-text Oyuncular #{movie.oyuncular}
+                p.card-text Yönetmen #{movie.yonetmen}
+            .card-footer.text-end 
+                a.btn.btn-primary(href='products/detail/'+movie.Id) Satın Al 

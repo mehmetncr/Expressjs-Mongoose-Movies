@@ -1,0 +1,37 @@
+extends layout
+block content
+    form(action='/movies/edit' method='POST' )        
+        .row
+            .col-5
+                .input-group.input-group-sm.mb-3  
+                label
+                    | Film Adı        
+                input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='filmAdi' value=movies.filmAdi)
+                input.form-control(type='hidden' name='id' value=movies._id)
+                label
+                    | Yönetmen  
+                br
+                input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='yonetmen' value=movies.yonetmen)
+                label
+                    | Oyuncular  
+                             
+                br       
+                input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='oyuncular' value=movies.oyuncular)
+                label
+                    | Kategori  
+                br
+                select.form-select(name='kategori')              
+                    each val in category
+                        if val._id.toString() == movies.kategori.toString()                        
+                            option(selected value=`${val._id}`) #{val.adi}                        
+                        option(value=`${val._id}`) #{val.adi}  
+                label
+                    | Resim  
+                br
+                input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='img' value=movies.imageUrl)
+                .input-group
+                
+                
+            
+                button#inputGroupFileAddon04.btn.btn-outline-secondary(type='submit') Save
+

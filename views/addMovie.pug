@@ -1,0 +1,34 @@
+extends layout
+block content
+    form(action='addMovie' method='POST')
+        .row
+            .col-5
+                .input-group.input-group-sm.mb-3  
+                label
+                    | Film Adı        
+                input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='filmAdi')
+                label
+                    | Yönetmen  
+                br
+                input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='yonetmen')
+                label
+                    | Oyuncular  
+                br                
+                input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='oyuncular')
+                label
+                    | Kategori  
+                br
+                select.form-select(name='kategori')
+                    option(selected) Kattegori Seç
+                    each val in category                        
+                        option(value=`${val._id}`) #{val.adi}                        
+                label
+                    | Resim  
+                br
+                input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-sm' name='img')
+                .input-group
+                
+                
+            
+                button#inputGroupFileAddon04.btn.btn-outline-secondary(type='submit') Save
+
