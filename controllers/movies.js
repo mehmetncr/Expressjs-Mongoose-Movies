@@ -7,8 +7,18 @@ exports.GetMoviesList=(req,res)=>{
    
     Movie.find()
     .then(movies=>{
-    res.render('moviesList',{movies:movies})
+
+            res.render('moviesList',{movies:movies,category:cate})
+
     })
+}
+
+exports.getGetByCatMovie=(req,res)=>{
+    const id = req.params.id;
+    Movie.find({kategor:id})
+    .then(movies=>{
+        res.render('moviesList',{movies:movies})
+        })
 }
 
 exports.postSearchMovie=(req,res)=>{        

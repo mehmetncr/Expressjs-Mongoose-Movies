@@ -15,7 +15,8 @@ const CartDetailSchema=new Schema({
     price: Number,
     date:Date,
     quantity:Number,
-    totalPrice:Number  
+    totalPrice:Number,
+    monieName:String
 })
 
 module.exports=mongoose.model('cartDetail',CartDetailSchema)

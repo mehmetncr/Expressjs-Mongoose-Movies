@@ -7,6 +7,7 @@ const Movie = require('../models/movie');
 exports.getCart=(req,res)=>{
     const cart = req.session.cart||[];
     res.render('cart',{title:'sepet',cart: cart})
+    console.log(cart);
    
 }
 
@@ -25,7 +26,10 @@ exports.getAddCart=(req,res)=>{
             movie: movie._id,
             price:movie.fiyat,
             quantity:1,
-            totalPrice:movie.fiyat
+            totalPrice:movie.fiyat,
+            monieName:movie.filmAdi
+
+
         })
         
         if (!req.session.cart) {

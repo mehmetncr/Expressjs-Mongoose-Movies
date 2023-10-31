@@ -11,6 +11,6 @@ router.get('/edit/:id',movieController.getEditMovie);
 router.post('/edit',movieController.postEditMovie);
 router.get('/delete/:id',movieController.getdeleteMovie);
 router.post('/search',movieController.postSearchMovie);
-//router.get('/get',movieController.postSearchMovie);
+router.get('/get/:id',movieController.getGetByCatMovie);
 //router.get('/getCategory/:id',categoryController.getDeleteCategory);
 module.exports = router;
