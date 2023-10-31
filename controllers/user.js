@@ -65,7 +65,7 @@ exports.postRegisterUser=(req,res)=>{
 }
 
 
-exports.getLogOutUser=(req,res)=>{
+exports.getLogoutUser=(req,res)=>{
     req.session.destroy();
     res.redirect('/');
 }

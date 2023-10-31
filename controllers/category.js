@@ -5,7 +5,7 @@ const Category = require('../models/category');
 exports.GetCategory=(req,res)=>{
     Category.find()
     .then(category=>{
-    res.render('categoryList',{category:category})
+    res.render('categoryList',{title:'Kategori Listesi',category:category})
     })
 }
 exports.GetAddCategory=(req,res)=>{

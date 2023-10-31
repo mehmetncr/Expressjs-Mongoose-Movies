@@ -8,7 +8,8 @@ block content
                 h5.card-title #{movie.filmAdi}
                 img.card-img-top(src=`${movie.imgUrl}` width='200px')
             .card-body.text-center
-                p.card-text Oyuncular #{movie.oyuncular}
-                p.card-text Yönetmen #{movie.yonetmen}
+                p.card-text Oyuncular :  #{movie.oyuncular}
+                p.card-text Yönetmen :  #{movie.yonetmen}
+                p.card-text Kategori :  #{movie.kategori.adi}    
             .card-footer.text-end 
                 a.btn.btn-primary(href='products/detail/'+movie.Id) Satın Al 

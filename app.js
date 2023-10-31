@@ -10,7 +10,7 @@ const usersRouter = require('./routes/users');
 const moviesRouter = require('./routes/movies');
 const categoryRouter = require('./routes/category');
 const cartRouter = require('./routes/cart');
-//const Category = require('/models/category')
+const Category = require('./models/category')
 
 
 const mongoose = require('mongoose');  //db referansı
@@ -28,11 +28,13 @@ app.use(session({
 
 
 app.use((req, res, next) => {
-
-
-    res.locals.user = req.session.user;
-    next();
-  });
+  Category.find()    
+    .then((cate)=>{
+      res.locals.categories=cate;
+      res.locals.user = req.session.user;
+      next();
+    })   
+});
  
 
 

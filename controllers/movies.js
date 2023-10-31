@@ -3,22 +3,24 @@ const express = require('express');
 const Movie = require('../models/movie')
 const Category = require('../models/category')
 
-exports.GetMoviesList=(req,res)=>{
-   
-    Movie.find()
+exports.GetMoviesList=(req,res)=>{   
+    Movie.find()    
     .then(movies=>{
-
-            res.render('moviesList',{movies:movies,category:cate})
+         res.render('moviesList',{movies:movies})
 
     })
 }
 
 exports.getGetByCatMovie=(req,res)=>{
     const id = req.params.id;
-    Movie.find({kategor:id})
+    Movie.find({kategori:id})
     .then(movies=>{
-        res.render('moviesList',{movies:movies})
-        })
+            res.render('movies',{
+            title:'Movie List',
+            movieList:movies})        
+        }).catch((err)=>{
+            console.log(err);
+        })   
 }
 
 exports.postSearchMovie=(req,res)=>{        
@@ -43,7 +45,9 @@ exports.getdeleteMovie=(req,res)=>{
 }
 exports.getDetailMovie=(req,res)=>{
     Movie.findById({_id:req.params.id})
+    .populate('kategori')
     .then(movies=>{
+        console.log(movies);
     res.render('movieDetail',{movie:movies})
     })
     .catch((err)=>{
@@ -115,7 +119,7 @@ exports.GetMovies=(req,res)=>{
         res.render('movies',{
             title:'Movie List',
             movieList:movies,
-           // category: Category.find()            
+          
         })
     })
     

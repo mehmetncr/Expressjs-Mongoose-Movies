@@ -40,8 +40,10 @@ exports.getAddCart=(req,res)=>{
           console.log(req.session.cart.length);     
     })  
     }
+
     req.session.cart = cart; 
     req.session.save();
+    res.redirect('/movies')
  
 }
 
